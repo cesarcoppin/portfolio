@@ -3,135 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BTS SIO SISR - Projets</title>
+    <title>Mes Projets - César COPPIN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f4f7f6;
-            display: flex;
-            justify-content: center;
-            padding: 50px;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 900px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-
-        /* Style des onglets */
-        .tabs {
-            display: flex;
-            border-bottom: 2px solid #ddd;
-            margin-bottom: 20px;
-        }
-
-        .tab-link {
-            padding: 10px 20px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            outline: none;
-            transition: 0.3s;
-            font-weight: bold;
-            color: #7f8c8d;
-        }
-
-        .tab-link:hover {
-            color: #3498db;
-        }
-
-        .tab-link.active {
-            color: #3498db;
-            border-bottom: 3px solid #3498db;
-        }
-
-        /* Contenu des onglets */
-        .tab-content {
-            display: none;
-            animation: fadeEffect 0.5s;
-        }
-
-        @keyframes fadeEffect {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-
-        .active-content {
-            display: block;
-        }
-
-        .project-details {
-            padding: 20px;
+            color: #333;
             line-height: 1.6;
         }
 
-        .pdf-button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #3498db;
+        /* ── NAV ── */
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav ul li a {
             color: white;
             text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .btn-retour {
+            background: #e74c3c;
+            padding: 8px 15px;
             border-radius: 5px;
+            transition: background 0.3s !important;
+        }
+
+        .btn-retour:hover {
+            background: #c0392b !important;
+        }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            background: white;
+            padding: 50px 20px 40px;
+            text-align: center;
+            border-bottom: 3px solid #eee;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            color: #7f8c8d;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            width: 85%;
+            max-width: 960px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        /* ── TABS ── */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .tab-link {
+            padding: 14px 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .tab-link:hover {
+            color: #2c3e50;
+        }
+
+        .tab-link.active {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            background: white;
+        }
+
+        /* ── TAB CONTENT ── */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+            padding: 40px;
+        }
+
+        .tab-content.active-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .tab-content p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        /* Placeholder pour projets vides */
+        .placeholder {
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* ── PDF BUTTON ── */
+        .pdf-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 22px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.88rem;
             transition: background 0.3s;
         }
 
         .pdf-button:hover {
-            background-color: #2980b9;
+            background-color: #e74c3c;
+        }
+
+        /* ── BADGE TAGS ── */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0;
+        }
+
+        .tag {
+            background: #eaf0fb;
+            color: #2c3e50;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Mes Projets BTS SIO SISR</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html#profil">Profil</a></li>
+            <li><a href="index.html#competences">Compétences</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html" class="btn-retour">← Retour au menu</a></li>
+        </ul>
+    </nav>
 
-    <div class="tabs">
-        <button class="tab-link active" onclick="openProject(event, 'p1')">AP2 - Mission n°2 - ARCHISEC</button>
-        <button class="tab-link active" onclick="openProject(event, 'p2')">AP2 – Mission n°3 Visiteurs at Home</button>
-        <button class="tab-link" onclick="openProject(event, 'p3')">Projet 3</button>
-        <button class="tab-link" onclick="openProject(event, 'p4')">Projet 4</button>
-        <button class="tab-link" onclick="openProject(event, 'p5')">Projet 5</button>
+    <div class="page-header">
+        <h1>Mes Projets BTS SIO SISR</h1>
+        <p>Comptes rendus et réalisations techniques réalisés en formation</p>
     </div>
 
-    <div id="p1" class="tab-content active-content">
-        <div class="project-details">
-            <h3>Mise en place d'une maquette réseau pour l'accueil automatique des visiteurs médicaux au siège de l'entreprise GSB</h3>
-            <p>Service DHCP : Automatisation de l'adressage IP sur le VLAN Visiteurs (192.168.150.0/24).
-               Gestion des flux : Limitation stricte à 9 connexions simultanées pour le parc mobile.
-               Service DNS : Création du domaine interne GSB-votrenom.net pour la résolution de noms locale.
-               Sécurisation : Configuration du serveur DNS en mode non-récursif/privé, interdisant tout accès depuis Internet</p>
-            <a href="AP2-Mission2-GSB-Architecture-Sécurisée-update.pdf" target="_blank" class="pdf-button">Voir le compte rendu (PDF)</a>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-link active" onclick="openProject(event, 'p1')">Mission n°2 – ARCHISEC</button>
+            <button class="tab-link" onclick="openProject(event, 'p2')">Mission n°3 – Visiteurs at Home</button>
+            <button class="tab-link" onclick="openProject(event, 'p3')">Projet 3</button>
+            <button class="tab-link" onclick="openProject(event, 'p4')">Projet 4</button>
+            <button class="tab-link" onclick="openProject(event, 'p5')">Projet 5</button>
+        </div>
+
+        <!-- P1 -->
+        <div id="p1" class="tab-content active-content">
+            <h3>AP2 – Mission n°2 : Mise en place d'une architecture réseau sécurisée (GSB)</h3>
+            <div class="tags">
+                <span class="tag">DHCP</span>
+                <span class="tag">DNS</span>
+                <span class="tag">VLAN</span>
+                <span class="tag">Sécurisation réseau</span>
+            </div>
+            <p>Mise en place d'une maquette réseau pour l'accueil automatique des visiteurs médicaux au siège de l'entreprise GSB.</p>
+            <p><strong>Service DHCP :</strong> Automatisation de l'adressage IP sur le VLAN Visiteurs (192.168.150.0/24) avec limitation à 9 connexions simultanées.</p>
+            <p><strong>Service DNS :</strong> Création du domaine interne <em>GSB-votrenom.net</em> pour la résolution de noms locale. Serveur configuré en mode non-récursif/privé, interdisant tout accès depuis Internet.</p>
+            <a href="AP2-Mission2-GSB-Architecture-Sécurisée-update.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+        </div>
+
+        <!-- P2 -->
+        <div id="p2" class="tab-content">
+            <h3>AP2 – Mission n°3 : Raccordement automatique des visiteurs médicaux (GSB)</h3>
+            <div class="tags">
+                <span class="tag">802.1X</span>
+                <span class="tag">Active Directory</span>
+                <span class="tag">LAN filaire</span>
+                <span class="tag">Domaine</span>
+            </div>
+            <p>Test des moyens permettant le raccordement automatique des PC de visiteurs médicaux et leur identification dans le domaine, au sein de l'architecture technique de GSB.</p>
+            <p>Mise en œuvre d'une solution permettant aux visiteurs de se connecter de façon filaire au LAN de GSB et de s'authentifier dans le domaine dès leur arrivée au siège.</p>
+            <a href="Mission3.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+        </div>
+
+        <!-- P3 -->
+        <div id="p3" class="tab-content">
+            <h3>Projet 3 – Sécurisation du réseau avec un Firewall</h3>
+            <div class="tags">
+                <span class="tag">Firewall</span>
+                <span class="tag">Sécurité réseau</span>
+            </div>
+            <p class="placeholder">Compte rendu à venir...</p>
+        </div>
+
+        <!-- P4 -->
+        <div id="p4" class="tab-content">
+            <h3>Projet 4</h3>
+            <p class="placeholder">Compte rendu à venir...</p>
+        </div>
+
+        <!-- P5 -->
+        <div id="p5" class="tab-content">
+            <h3>Projet 5</h3>
+            <p class="placeholder">Compte rendu à venir...</p>
         </div>
     </div>
 
-    <div id="p2" class="tab-content active-content">
-        <div class="project-details">
-            <h3>Test au sein de l’architecture technique de GSB, des moyens permettant le raccordement automatique des PC de visiteurs médicaux et leur identification dans le domaine.</h3>
-            <p>Visiteurs médicaux de se raccorder automatiquement de façon filaire au LAN de GSB et dans le domaine, lorsqu’ils se trouvent au sein du siège de l’entreprise.</p>
-            <a href="Mission3.pdf" target="_blank" class="pdf-button">Voir le compte rendu (PDF)</a>
-        </div>
-    </div>
+    <footer style="text-align:center; padding: 30px; color: #aaa; font-size: 0.8rem;">
+        &copy; 2026 – César COPPIN
+    </footer>
 
-    <div id="p3" class="tab-content">
-        <div class="project-details">
-            <h3>Sécurisation du réseau avec un Firewall</h3>
+    <script>
+        function openProject(evt, projectId) {
+            // Cacher tous les contenus
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active-content');
+            });
+            // Désactiver tous les onglets
+            document.querySelectorAll('.tab-link').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Afficher le contenu sélectionné
+            document.getElementById(projectId).classList.add('active-content');
+            // Activer l'onglet cliqué
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
 
-
-
-
-
-
-
-
-
-
+</body>
+</html>
