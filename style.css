@@ -75,10 +75,20 @@ header {
     color: #7f8c8d;
 }
 
-/* Compétences */
-#competences {
+/* Compétences, Outils, Veille */
+#competences,
+#outils,
+#veille {
     padding: 80px 20px;
     text-align: center;
+}
+
+#outils {
+    background-color: #eaf0fb;
+}
+
+#veille {
+    background-color: #f0f4f0;
 }
 
 .skills-grid {
