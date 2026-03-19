@@ -168,7 +168,7 @@
             margin-top: 20px;
         }
 
-        .pdf-button, .demo-button {
+        .pdf-button, .demo-button, .synthese-button {
             display: inline-block;
             padding: 10px 22px;
             border-radius: 6px;
@@ -195,6 +195,36 @@
 
         .demo-button:hover {
             background-color: #1e8449;
+            transform: translateY(-2px);
+        }
+
+        .synthese-button {
+            background-color: #8e44ad;
+            color: white;
+        }
+
+        .synthese-button:hover {
+            background-color: #6c3483;
+            transform: translateY(-2px);
+        }
+
+        .next-button {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border: 2px solid #2c3e50;
+            background: transparent;
+            color: #2c3e50;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        .next-button:hover {
+            background-color: #2c3e50;
+            color: white;
             transform: translateY(-2px);
         }
 
@@ -255,7 +285,9 @@
             <p><strong>Service DNS :</strong> Création du domaine interne <em>GSB-votrenom.net</em> pour la résolution de noms locale. Serveur configuré en mode non-récursif/privé, interdisant tout accès depuis Internet.</p>
             <div class="btn-group">
                 <a href="AP2-Mission2-GSB-Architecture-Sécurisée-update.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
-                <a href="mission1.html" class="demo-button">🖼️ Voir la démonstration</a>
+                <a href="galerie-mission1.html" class="demo-button">🖼️ Voir la démonstration</a>
+                <a href="synthese-mission1.html" class="synthese-button">📝 Synthèse de projet</a>
+                <button class="next-button" onclick="goToProject(event, 'p2')">Projet suivant →</button>
             </div>
         </div>
 
@@ -272,7 +304,9 @@
             <p>Mise en œuvre d'une solution permettant aux visiteurs de se connecter de façon filaire au LAN de GSB et de s'authentifier dans le domaine dès leur arrivée au siège.</p>
             <div class="btn-group">
                 <a href="Mission3.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
-                <a href="mission2.html" class="demo-button">🖼️ Voir la démonstration</a>
+                <a href="galerie-mission2.html" class="demo-button">🖼️ Voir la démonstration</a>
+                <a href="synthese-mission2.html" class="synthese-button">📝 Synthèse de projet</a>
+                <button class="next-button" onclick="goToProject(event, 'p3')">Projet suivant →</button>
             </div>
         </div>
 
@@ -284,12 +318,18 @@
                 <span class="tag">Sécurité réseau</span>
             </div>
             <p class="placeholder">Compte rendu à venir...</p>
+            <div class="btn-group" style="margin-top:16px;">
+                <button class="next-button" onclick="goToProject(event, 'p4')">Projet suivant →</button>
+            </div>
         </div>
 
         <!-- P4 -->
         <div id="p4" class="tab-content">
             <h3>Projet 4</h3>
             <p class="placeholder">Compte rendu à venir...</p>
+            <div class="btn-group" style="margin-top:16px;">
+                <button class="next-button" onclick="goToProject(event, 'p5')">Projet suivant →</button>
+            </div>
         </div>
 
         <!-- P5 -->
@@ -305,18 +345,23 @@
 
     <script>
         function openProject(evt, projectId) {
-            // Cacher tous les contenus
-            document.querySelectorAll('.tab-content').forEach(el => {
-                el.classList.remove('active-content');
-            });
-            // Désactiver tous les onglets
-            document.querySelectorAll('.tab-link').forEach(el => {
-                el.classList.remove('active');
-            });
-            // Afficher le contenu sélectionné
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-content'));
+            document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
             document.getElementById(projectId).classList.add('active-content');
-            // Activer l'onglet cliqué
             evt.currentTarget.classList.add('active');
+        }
+
+        function goToProject(evt, projectId) {
+            // Désactiver tout
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-content'));
+            document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
+            // Activer le bon projet
+            document.getElementById(projectId).classList.add('active-content');
+            // Activer le bon onglet (p1→index 0, p2→index 1, etc.)
+            const index = parseInt(projectId.replace('p', '')) - 1;
+            document.querySelectorAll('.tab-link')[index].classList.add('active');
+            // Scroll vers les onglets
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     </script>
 
