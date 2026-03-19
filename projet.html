@@ -161,21 +161,41 @@
         }
 
         /* ── PDF BUTTON ── */
-        .pdf-button {
-            display: inline-block;
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
             margin-top: 20px;
+        }
+
+        .pdf-button, .demo-button {
+            display: inline-block;
             padding: 10px 22px;
-            background-color: #2c3e50;
-            color: white;
-            text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.88rem;
-            transition: background 0.3s;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .pdf-button {
+            background-color: #2c3e50;
+            color: white;
         }
 
         .pdf-button:hover {
             background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
+        .demo-button {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .demo-button:hover {
+            background-color: #1e8449;
+            transform: translateY(-2px);
         }
 
         /* ── BADGE TAGS ── */
@@ -233,7 +253,10 @@
             <p>Mise en place d'une maquette réseau pour l'accueil automatique des visiteurs médicaux au siège de l'entreprise GSB.</p>
             <p><strong>Service DHCP :</strong> Automatisation de l'adressage IP sur le VLAN Visiteurs (192.168.150.0/24) avec limitation à 9 connexions simultanées.</p>
             <p><strong>Service DNS :</strong> Création du domaine interne <em>GSB-votrenom.net</em> pour la résolution de noms locale. Serveur configuré en mode non-récursif/privé, interdisant tout accès depuis Internet.</p>
-            <a href="AP2-Mission2-GSB-Architecture-Sécurisée-update.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+            <div class="btn-group">
+                <a href="AP2-Mission2-GSB-Architecture-Sécurisée-update.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+                <a href="galerie-mission1.html" class="demo-button">🖼️ Voir la démonstration</a>
+            </div>
         </div>
 
         <!-- P2 -->
@@ -247,7 +270,10 @@
             </div>
             <p>Test des moyens permettant le raccordement automatique des PC de visiteurs médicaux et leur identification dans le domaine, au sein de l'architecture technique de GSB.</p>
             <p>Mise en œuvre d'une solution permettant aux visiteurs de se connecter de façon filaire au LAN de GSB et de s'authentifier dans le domaine dès leur arrivée au siège.</p>
-            <a href="Mission3.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+            <div class="btn-group">
+                <a href="Mission3.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+                <a href="galerie-mission2.html" class="demo-button">🖼️ Voir la démonstration</a>
+            </div>
         </div>
 
         <!-- P3 -->
