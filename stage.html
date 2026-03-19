@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Stage – César COPPIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .page-header {
+            background: white;
+            padding: 50px 20px 35px;
+            text-align: center;
+            border-bottom: 3px solid #eee;
+        }
+        .page-header .badge {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .page-header h1 { font-size: 2rem; color: #2c3e50; font-weight: 600; }
+        .page-header p  { color: #7f8c8d; margin-top: 8px; font-size: 0.92rem; }
+
+        .stage-container {
+            width: 85%;
+            max-width: 960px;
+            margin: 50px auto 60px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            background: #f8f9fa;
+        }
+        .tab-link {
+            flex: 1;
+            padding: 16px 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            transition: color 0.3s, border-color 0.3s;
+            text-align: center;
+        }
+        .tab-link:hover { color: #2c3e50; }
+        .tab-link.active {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            background: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+            padding: 40px;
+        }
+        .tab-content.active-content { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+        .info-item {
+            background: #f4f7f6;
+            border-radius: 8px;
+            padding: 14px 18px;
+        }
+        .info-item .label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 5px;
+        }
+        .info-item .value {
+            font-size: 0.92rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .section-block { margin-bottom: 28px; }
+        .section-block h2 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #fdecea;
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+        }
+        .section-block p {
+            font-size: 0.93rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .missions-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .missions-list li {
+            background: #f4f7f6;
+            border-left: 4px solid #2c3e50;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 16px;
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .missions-list li strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .mission-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .mission-text { flex: 1; }
+
+        .btn-mission-demo {
+            display: inline-block;
+            padding: 7px 16px;
+            background: linear-gradient(135deg, #e74c3c, #2c3e50);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.78rem;
+            white-space: nowrap;
+            transition: opacity 0.3s, transform 0.2s;
+            flex-shrink: 0;
+        }
+        .btn-mission-demo:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+        .tag {
+            background: #eaf0fb;
+            color: #2c3e50;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .demo-pro-wrap {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid #f0f0f0;
+            text-align: center;
+        }
+        .demo-pro-wrap p {
+            color: #7f8c8d;
+            font-size: 0.88rem;
+            margin-bottom: 16px;
+        }
+        .btn-demo-pro {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #e74c3c, #2c3e50);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+        .btn-demo-pro:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+        }
+
+        .stage-footer {
+            text-align: center;
+            padding: 30px;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#profil">Profil</a></li>
+            <li><a href="index.html#competences">Compétences</a></li>
+            <li><a href="projet.html">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html" class="btn-cv">← Retour au menu</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <div class="badge">🏢 Expérience professionnelle</div>
+        <h1>Mon Stage BTS SIO SISR</h1>
+        <p>Réalisations en milieu professionnel – 1ère &amp; 2ème année</p>
+    </div>
+
+    <div class="stage-container">
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'annee1')">📅 Stage 1ère année</button>
+            <button class="tab-link"        onclick="openTab(event, 'annee2')">📅 Stage 2ème année</button>
+        </div>
+
+        <!-- ══ ONGLET 1 ══ -->
+        <div id="annee1" class="tab-content active-content">
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">Entreprise</div>
+                    <div class="value">À compléter</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Période</div>
+                    <div class="value">À compléter</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Durée</div>
+                    <div class="value">À compléter</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Lieu</div>
+                    <div class="value">À compléter</div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>Missions réalisées</h2>
+                <ul class="missions-list">
+                    <li>
+                        <div class="mission-row">
+                            <div class="mission-text">
+                                <strong>Mission 1 – À compléter</strong>
+                                Description de la mission réalisée...
+                            </div>
+                            <a href="act1.html" class="btn-mission-demo">📸 Démonstration</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mission-row">
+                            <div class="mission-text">
+                                <strong>Mission 2 – À compléter</strong>
+                                Description de la mission réalisée...
+                            </div>
+                            <a href="galerie-s1-mission2.html" class="btn-mission-demo">📸 Démonstration</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mission-row">
+                            <div class="mission-text">
+                                <strong>Mission 3 – À compléter</strong>
+                                Description de la mission réalisée...
+                            </div>
+                            <a href="galerie-s1-mission3.html" class="btn-mission-demo">📸 Démonstration</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-block">
+                <h2>Outils utilisés</h2>
+                <div class="tags">
+                    <span class="tag">À compléter</span>
+                    <span class="tag">À compléter</span>
+                    <span class="tag">À compléter</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ══ ONGLET 2 ══ -->
+        <div id="annee2" class="tab-content">
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">Entreprise</div>
+                    <div class="value">À compléter</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Période</div>
+                    <div class="value">À compléter</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Durée</div>
+                    <div class="value">À compléter</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Lieu</div>
+                    <div class="value">À compléter</div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>Missions réalisées</h2>
+                <ul class="missions-list">
+                    <li>
+                        <div class="mission-row">
+                            <div class="mission-text">
+                                <strong>Mission 1 – À compléter</strong>
+                                Description de la mission réalisée...
+                            </div>
+                            <a href="galerie-s2-mission1.html" class="btn-mission-demo">📸 Démonstration</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mission-row">
+                            <div class="mission-text">
+                                <strong>Mission 2 – À compléter</strong>
+                                Description de la mission réalisée...
+                            </div>
+                            <a href="galerie-s2-mission2.html" class="btn-mission-demo">📸 Démonstration</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mission-row">
+                            <div class="mission-text">
+                                <strong>Mission 3 – À compléter</strong>
+                                Description de la mission réalisée...
+                            </div>
+                            <a href="galerie-s2-mission3.html" class="btn-mission-demo">📸 Démonstration</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-block">
+                <h2>Outils utilisés</h2>
+                <div class="tags">
+                    <span class="tag">À compléter</span>
+                    <span class="tag">À compléter</span>
+                    <span class="tag">À compléter</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="stage-footer">&copy; 2026 – César COPPIN</div>
+
+    <script>
+        function openTab(evt, tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-content'));
+            document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active-content');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
