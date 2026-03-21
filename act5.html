@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie – Stage 2ème année – Mission 3 – À compléter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .page-header {
+            background: white;
+            padding: 50px 20px 35px;
+            text-align: center;
+            border-bottom: 3px solid #eee;
+        }
+        .page-header .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #2c3e50);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .page-header h1 { font-size: 1.8rem; color: #2c3e50; font-weight: 600; }
+        .page-header .sub { color: #7f8c8d; margin-top: 6px; font-size: 0.88rem; }
+        .page-header .mission-tag {
+            display: inline-block;
+            margin-top: 12px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        /* ── CONTENEUR GALERIE ── */
+        .galerie-outer {
+            width: 90%;
+            max-width: 1100px;
+            margin: 44px auto 60px;
+        }
+
+        .notice {
+            margin-bottom: 28px;
+            padding: 13px 18px;
+            background: #fdecea;
+            border-left: 4px solid #e74c3c;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #922b21;
+        }
+
+        /* ── CADRE GALERIE ── */
+        .galerie-frame {
+            border: 3px solid #2c3e50;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        .galerie-frame-header {
+            background: #2c3e50;
+            padding: 18px 26px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .galerie-frame-header .num {
+            width: 40px;
+            height: 40px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .galerie-frame-header h2 { font-size: 1rem; color: white; font-weight: 600; margin-bottom: 3px; }
+        .galerie-frame-header p  { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+
+        .galerie-frame-body {
+            background: #f4f7f6;
+            padding: 28px;
+        }
+
+        /* ── GRILLE PHOTOS ── */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* ── CARTE PHOTO ── */
+        .photo-card {
+            background: white;
+            border-radius: 10px;
+            border: 2.5px solid #dde3ea;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+            position: relative;
+        }
+        .photo-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+            border-color: #e74c3c;
+        }
+
+        /* BADGE numéro de photo */
+        .photo-card .photo-num {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(44,62,80,0.85);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* PLACEHOLDER */
+        .photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #fdecea, #f5cac3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-bottom: 2px dashed #f1948a;
+            color: #c0392b;
+            font-size: 0.8rem;
+        }
+        .photo-placeholder .ph-icon { font-size: 2.4rem; }
+
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* LÉGENDE */
+        .photo-legend {
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-top: 2px solid #f0f0f0;
+        }
+        .photo-legend-text h3 { font-size: 0.84rem; font-weight: 600; color: #2c3e50; margin-bottom: 2px; }
+        .photo-legend-text p  { font-size: 0.74rem; color: #7f8c8d; }
+        .zoom-btn {
+            width: 32px;
+            height: 32px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+        .photo-card:hover .zoom-btn { background: #e74c3c; }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 20px;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox img {
+            max-width: 92vw;
+            max-height: 78vh;
+            border-radius: 10px;
+            border: 3px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 80px rgba(0,0,0,0.7);
+        }
+        .lb-info { text-align: center; }
+        .lb-tag {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .lb-caption {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.88rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .lb-close {
+            position: fixed;
+            top: 18px; right: 24px;
+            font-size: 2.2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0.75;
+            transition: opacity 0.2s;
+            line-height: 1;
+        }
+        .lb-close:hover { opacity: 1; }
+
+        .stage-footer { text-align: center; padding: 30px; color: #aaa; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="stage.html" class="btn-cv">← Retour au stage</a></li>
+            <li><a href="index.html">🏠 Accueil</a></li>
+            <li><a href="projet.html">📁 Projets</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <div class="badge">📸 Galerie de démonstration</div>
+        <h1>Stage 2ème année</h1>
+        <p class="sub">Réalisations en milieu professionnel</p>
+        <div class="mission-tag">Mission 3 – À compléter</div>
+    </div>
+
+    <div class="galerie-outer">
+
+        <div class="notice">
+            📁 Pour ajouter tes photos : supprime la <code>div photo-placeholder</code> de chaque carte et décommente <code>&lt;img src="..."&gt;</code> en indiquant le bon fichier. Modifie aussi les titres et descriptions.
+        </div>
+
+        <!-- ══ CADRE GALERIE ══ -->
+        <div class="galerie-frame">
+
+            <div class="galerie-frame-header">
+                <div class="num">3</div>
+                <div>
+                    <h2>Mission 3 – À compléter</h2>
+                    <p>Description courte de la mission – À compléter</p>
+                </div>
+            </div>
+
+            <div class="galerie-frame-body">
+                <div class="photo-grid">
+
+                    <!-- PHOTO 1 -->
+                    <div class="photo-card" onclick="openLb('s2-m3-p1.jpg', 'Photo 1 – À compléter')">
+                        <span class="photo-num">1</span>
+                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
+                        <!-- <img src="s2-m3-p1.jpg" alt="Photo 1"> -->
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 2 -->
+                    <div class="photo-card" onclick="openLb('s2-m3-p2.jpg', 'Photo 2 – À compléter')">
+                        <span class="photo-num">2</span>
+                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
+                        <!-- <img src="s2-m3-p2.jpg" alt="Photo 2"> -->
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 3 -->
+                    <div class="photo-card" onclick="openLb('s2-m3-p3.jpg', 'Photo 3 – À compléter')">
+                        <span class="photo-num">3</span>
+                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
+                        <!-- <img src="s2-m3-p3.jpg" alt="Photo 3"> -->
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 4 -->
+                    <div class="photo-card" onclick="openLb('s2-m3-p4.jpg', 'Photo 4 – À compléter')">
+                        <span class="photo-num">4</span>
+                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
+                        <!-- <img src="s2-m3-p4.jpg" alt="Photo 4"> -->
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 5 -->
+                    <div class="photo-card" onclick="openLb('s2-m3-p5.jpg', 'Photo 5 – À compléter')">
+                        <span class="photo-num">5</span>
+                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
+                        <!-- <img src="s2-m3-p5.jpg" alt="Photo 5"> -->
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 6 -->
+                    <div class="photo-card" onclick="openLb('s2-m3-p6.jpg', 'Photo 6 – À compléter')">
+                        <span class="photo-num">6</span>
+                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
+                        <!-- <img src="s2-m3-p6.jpg" alt="Photo 6"> -->
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLb()">
+        <button class="lb-close" onclick="closeLb()">✕</button>
+        <img id="lb-img" src="" alt="">
+        <div class="lb-info">
+            <div class="lb-tag">Stage 2ème année – Mission 3 – À compléter</div>
+            <p class="lb-caption" id="lb-caption"></p>
+        </div>
+    </div>
+
+    <div class="stage-footer">&copy; 2026 – César COPPIN</div>
+
+    <script>
+        function openLb(src, caption) {
+            document.getElementById('lb-img').src = src;
+            document.getElementById('lb-caption').textContent = caption;
+            document.getElementById('lightbox').classList.add('open');
+        }
+        function closeLb() {
+            document.getElementById('lightbox').classList.remove('open');
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+    </script>
+
+</body>
+</html>
