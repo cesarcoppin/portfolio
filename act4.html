@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie – Stage 2ème année – Mission 3 – À compléter</title>
+    <title>Galerie – Stage 2ème année – Mission 3</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -38,24 +38,12 @@
             font-weight: 600;
         }
 
-        /* ── CONTENEUR GALERIE ── */
         .galerie-outer {
             width: 90%;
             max-width: 1100px;
             margin: 44px auto 60px;
         }
 
-        .notice {
-            margin-bottom: 28px;
-            padding: 13px 18px;
-            background: #fdecea;
-            border-left: 4px solid #e74c3c;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: #922b21;
-        }
-
-        /* ── CADRE GALERIE ── */
         .galerie-frame {
             border: 3px solid #2c3e50;
             border-radius: 16px;
@@ -91,14 +79,12 @@
             padding: 28px;
         }
 
-        /* ── GRILLE PHOTOS ── */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        /* ── CARTE PHOTO ── */
         .photo-card {
             background: white;
             border-radius: 10px;
@@ -114,7 +100,6 @@
             border-color: #e74c3c;
         }
 
-        /* BADGE numéro de photo */
         .photo-card .photo-num {
             position: absolute;
             top: 10px;
@@ -132,22 +117,6 @@
             z-index: 2;
         }
 
-        /* PLACEHOLDER */
-        .photo-placeholder {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #fdecea, #f5cac3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border-bottom: 2px dashed #f1948a;
-            color: #c0392b;
-            font-size: 0.8rem;
-        }
-        .photo-placeholder .ph-icon { font-size: 2.4rem; }
-
         .photo-card img {
             width: 100%;
             height: 200px;
@@ -155,7 +124,6 @@
             display: block;
         }
 
-        /* LÉGENDE */
         .photo-legend {
             padding: 12px 14px;
             display: flex;
@@ -181,7 +149,7 @@
         }
         .photo-card:hover .zoom-btn { background: #e74c3c; }
 
-        /* ── LIGHTBOX ── */
+        /* LIGHTBOX */
         .lightbox {
             display: none;
             position: fixed;
@@ -253,14 +221,14 @@
         <p class="sub">Réalisations en milieu professionnel</p>
         <div class="mission-tag">Gestion MDM:COPE, Tablettes Zebra, AutoPilot.</div>
     </div>
-        <!-- ══ CADRE GALERIE ══ -->
+
+    <div class="galerie-outer">
         <div class="galerie-frame">
 
             <div class="galerie-frame-header">
                 <div class="num">2</div>
                 <div>
                     <h2>Gestion MDM:COPE, Tablettes Zebra, AutoPilot, Kiosk</h2>
-   
                 </div>
             </div>
 
@@ -268,133 +236,149 @@
                 <div class="photo-grid">
 
                     <!-- PHOTO 1 -->
-                    <div class="photo-card" onclick="openLb('image13.png"')">
+                    <div class="photo-card" onclick="openLb('image13.png', 'Photo 1')">
                         <span class="photo-num">1</span>
-                      
                         <img src="image13.png" alt="Photo 1">
-                    
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 2 -->
-                    <div class="photo-card" onclick="openLb('image14.png"')">
+                    <div class="photo-card" onclick="openLb('image14.png', 'Photo 2')">
                         <span class="photo-num">2</span>
-                      
-                         <img src="image14.png"" alt="Photo 2">
-                    
+                        <img src="image14.png" alt="Photo 2">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 3 -->
-                    <div class="photo-card" onclick="openLb('image15.png"')">
+                    <div class="photo-card" onclick="openLb('image15.png', 'Photo 3')">
                         <span class="photo-num">3</span>
-                
-                        <img src="image15.png"" alt="Photo 3"> 
+                        <img src="image15.png" alt="Photo 3">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 4 -->
-                    <div class="photo-card" onclick="openLb('image16.png"')">
+                    <div class="photo-card" onclick="openLb('image16.png', 'Photo 4')">
                         <span class="photo-num">4</span>
-                   
-                        <img src="image16.png"" alt="Photo 4">
-                
+                        <img src="image16.png" alt="Photo 4">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 5 -->
-                    <div class="photo-card" onclick="openLb('image17.png"')">
+                    <div class="photo-card" onclick="openLb('image17.png', 'Photo 5')">
                         <span class="photo-num">5</span>
-                   
-                        <img src="image17.png"" alt="Photo 5"> 
-                       
+                        <img src="image17.png" alt="Photo 5">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 6 -->
-                    <div class="photo-card" onclick="openLb('image18.png"')">
+                    <div class="photo-card" onclick="openLb('image18.png', 'Photo 6')">
                         <span class="photo-num">6</span>
-                      
-                      <img src="image18.png" alt="Photo 6"> 
-                      
+                        <img src="image18.png" alt="Photo 6">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
-                        </div>
-                    </div>
-                 <div class="photo-card" onclick="openLb('image19.png"')">
-                        <span class="photo-num">7</span>
-                      
-                      <img src="image19.png" alt="Photo 7"> 
-                      
-                            <div class="zoom-btn">🔍</div>
-                        </div>
-                    </div>
-                   <div class="photo-card" onclick="openLb('image20.png"')">
-                        <span class="photo-num">8</span>
-                      
-                      <img src="image20.png" alt="Photo 8"> 
-                      
-                            <div class="zoom-btn">🔍</div>
-                        </div>
-                    </div>
-                     <div class="photo-card" onclick="openLb('image21.png"')">
-                        <span class="photo-num">9</span>
-                      
-                      <img src="image21.png" alt="Photo 9"> 
-                      
-                            <div class="zoom-btn">🔍</div>
-                         
                         </div>
                     </div>
 
-                     <div class="photo-card" onclick="openLb('image22.png"')">
+                    <!-- PHOTO 7 -->
+                    <div class="photo-card" onclick="openLb('image19.png', 'Photo 7')">
+                        <span class="photo-num">7</span>
+                        <img src="image19.png" alt="Photo 7">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 8 -->
+                    <div class="photo-card" onclick="openLb('image20.png', 'Photo 8')">
+                        <span class="photo-num">8</span>
+                        <img src="image20.png" alt="Photo 8">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 9 -->
+                    <div class="photo-card" onclick="openLb('image21.png', 'Photo 9')">
+                        <span class="photo-num">9</span>
+                        <img src="image21.png" alt="Photo 9">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                    <!-- PHOTO 10 -->
+                    <div class="photo-card" onclick="openLb('image22.png', 'Photo 10')">
                         <span class="photo-num">10</span>
-                      
-                      <img src="image22.png" alt="Photo 10"> 
-                      
+                        <img src="image22.png" alt="Photo 10">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
-                     <div class="photo-card" onclick="openLb('image23.png"')">
+
+                    <!-- PHOTO 11 -->
+                    <div class="photo-card" onclick="openLb('image23.png', 'Photo 11')">
                         <span class="photo-num">11</span>
-                      
-                      <img src="image19.png" alt="Photo 11"> 
-                      
+                        <img src="image23.png" alt="Photo 11">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
-                     <div class="photo-card" onclick="openLb('image24.png"')">
+
+                    <!-- PHOTO 12 -->
+                    <div class="photo-card" onclick="openLb('image24.png', 'Photo 12')">
                         <span class="photo-num">12</span>
-                      
-                      <img src="image24.png" alt="Photo 12"> 
-                      
+                        <img src="image24.png" alt="Photo 12">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
-                </div>
-                <div class="photo-card" onclick="openLb('image25.png"')">
+
+                    <!-- PHOTO 13 -->
+                    <div class="photo-card" onclick="openLb('image25.png', 'Photo 13')">
                         <span class="photo-num">13</span>
-                      
-                      <img src="image25.png" alt="Photo 13"> 
-                      
+                        <img src="image25.png" alt="Photo 13">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
-                    <div class="photo-card" onclick="openLb('image26.png"')">
+
+                    <!-- PHOTO 14 -->
+                    <div class="photo-card" onclick="openLb('image26.png', 'Photo 14')">
                         <span class="photo-num">14</span>
-                      
-                      <img src="image26.png" alt="Photo 14"> 
-                      
+                        <img src="image26.png" alt="Photo 14">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
-            </div>
-        </div>
-    </div>
+
+                </div><!-- fin .photo-grid -->
+            </div><!-- fin .galerie-frame-body -->
+        </div><!-- fin .galerie-frame -->
+    </div><!-- fin .galerie-outer -->
 
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox" onclick="closeLb()">
