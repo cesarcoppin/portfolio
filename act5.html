@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie – Stage 2ème année – Mission 3 – À compléter</title>
+    <title>Stage 2ème année – Correction de vulnérabilités (Chrome, Adobe, CrowdStrike)</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -38,24 +38,12 @@
             font-weight: 600;
         }
 
-        /* ── CONTENEUR GALERIE ── */
         .galerie-outer {
             width: 90%;
             max-width: 1100px;
             margin: 44px auto 60px;
         }
 
-        .notice {
-            margin-bottom: 28px;
-            padding: 13px 18px;
-            background: #fdecea;
-            border-left: 4px solid #e74c3c;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: #922b21;
-        }
-
-        /* ── CADRE GALERIE ── */
         .galerie-frame {
             border: 3px solid #2c3e50;
             border-radius: 16px;
@@ -91,14 +79,12 @@
             padding: 28px;
         }
 
-        /* ── GRILLE PHOTOS ── */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        /* ── CARTE PHOTO ── */
         .photo-card {
             background: white;
             border-radius: 10px;
@@ -114,7 +100,6 @@
             border-color: #e74c3c;
         }
 
-        /* BADGE numéro de photo */
         .photo-card .photo-num {
             position: absolute;
             top: 10px;
@@ -132,22 +117,6 @@
             z-index: 2;
         }
 
-        /* PLACEHOLDER */
-        .photo-placeholder {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #fdecea, #f5cac3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border-bottom: 2px dashed #f1948a;
-            color: #c0392b;
-            font-size: 0.8rem;
-        }
-        .photo-placeholder .ph-icon { font-size: 2.4rem; }
-
         .photo-card img {
             width: 100%;
             height: 200px;
@@ -155,7 +124,6 @@
             display: block;
         }
 
-        /* LÉGENDE */
         .photo-legend {
             padding: 12px 14px;
             display: flex;
@@ -181,7 +149,7 @@
         }
         .photo-card:hover .zoom-btn { background: #e74c3c; }
 
-        /* ── LIGHTBOX ── */
+        /* LIGHTBOX */
         .lightbox {
             display: none;
             position: fixed;
@@ -251,23 +219,16 @@
         <div class="badge">📸 Galerie de démonstration</div>
         <h1>Stage 2ème année</h1>
         <p class="sub">Réalisations en milieu professionnel</p>
-        <div class="mission-tag">Mission 3 – À compléter</div>
+        <div class="mission-tag"Correction de vulnérabilités (Chrome, Adobe, CrowdStrike)</div>
     </div>
 
     <div class="galerie-outer">
-
-        <div class="notice">
-            📁 Pour ajouter tes photos : supprime la <code>div photo-placeholder</code> de chaque carte et décommente <code>&lt;img src="..."&gt;</code> en indiquant le bon fichier. Modifie aussi les titres et descriptions.
-        </div>
-
-        <!-- ══ CADRE GALERIE ══ -->
         <div class="galerie-frame">
 
             <div class="galerie-frame-header">
-                <div class="num">3</div>
+                <div class="num">2</div>
                 <div>
-                    <h2>Mission 3 – À compléter</h2>
-                    <p>Description courte de la mission – À compléter</p>
+                    <h2>Correction de vulnérabilités (Chrome, Adobe, CrowdStrike)</h2>
                 </div>
             </div>
 
@@ -275,82 +236,86 @@
                 <div class="photo-grid">
 
                     <!-- PHOTO 1 -->
-                    <div class="photo-card" onclick="openLb('s2-m3-p1.jpg', 'Photo 1 – À compléter')">
+                    <div class="photo-card" onclick="openLb('image27.png', 'Photo 1')">
                         <span class="photo-num">1</span>
-                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
-                        <!-- <img src="s2-m3-p1.jpg" alt="Photo 1"> -->
+                        <img src="image27.png" alt="Photo 1">
                         <div class="photo-legend">
-                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 2 -->
-                    <div class="photo-card" onclick="openLb('s2-m3-p2.jpg', 'Photo 2 – À compléter')">
+                    <div class="photo-card" onclick="openLb('image28.png', 'Photo 2')">
                         <span class="photo-num">2</span>
-                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
-                        <!-- <img src="s2-m3-p2.jpg" alt="Photo 2"> -->
+                        <img src="image28.png" alt="Photo 2">
                         <div class="photo-legend">
-                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 3 -->
-                    <div class="photo-card" onclick="openLb('s2-m3-p3.jpg', 'Photo 3 – À compléter')">
+                    <div class="photo-card" onclick="openLb('image29.png', 'Photo 3')">
                         <span class="photo-num">3</span>
-                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
-                        <!-- <img src="s2-m3-p3.jpg" alt="Photo 3"> -->
+                        <img src="image29.png" alt="Photo 3">
                         <div class="photo-legend">
-                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 4 -->
-                    <div class="photo-card" onclick="openLb('s2-m3-p4.jpg', 'Photo 4 – À compléter')">
+                    <div class="photo-card" onclick="openLb('image30.png', 'Photo 4')">
                         <span class="photo-num">4</span>
-                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
-                        <!-- <img src="s2-m3-p4.jpg" alt="Photo 4"> -->
+                        <img src="image30.png" alt="Photo 4">
                         <div class="photo-legend">
-                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 5 -->
-                    <div class="photo-card" onclick="openLb('s2-m3-p5.jpg', 'Photo 5 – À compléter')">
+                    <div class="photo-card" onclick="openLb('image31.png', 'Photo 5')">
                         <span class="photo-num">5</span>
-                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
-                        <!-- <img src="s2-m3-p5.jpg" alt="Photo 5"> -->
+                        <img src="image31.png" alt="Photo 5">
                         <div class="photo-legend">
-                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
                     <!-- PHOTO 6 -->
-                    <div class="photo-card" onclick="openLb('s2-m3-p6.jpg', 'Photo 6 – À compléter')">
+                    <div class="photo-card" onclick="openLb('image32.png', 'Photo 6')">
                         <span class="photo-num">6</span>
-                        <div class="photo-placeholder"><span class="ph-icon">📷</span><span>Photo à venir</span></div>
-                        <!-- <img src="s2-m3-p6.jpg" alt="Photo 6"> -->
+                        <img src="image32.png" alt="Photo 6">
                         <div class="photo-legend">
-                            <div class="photo-legend-text"><h3>À compléter</h3><p>Description...</p></div>
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
                             <div class="zoom-btn">🔍</div>
                         </div>
                     </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
+                    <!-- PHOTO 7 -->
+                    <div class="photo-card" onclick="openLb('image33.png', 'Photo 7')">
+                        <span class="photo-num">7</span>
+                        <img src="image33.png" alt="Photo 7">
+                        <div class="photo-legend">
+                            <div class="photo-legend-text"><h3></h3><p></p></div>
+                            <div class="zoom-btn">🔍</div>
+                        </div>
+                    </div>
+
+                </div><!-- fin .photo-grid -->
+            </div><!-- fin .galerie-frame-body -->
+        </div><!-- fin .galerie-frame -->
+    </div><!-- fin .galerie-outer -->
 
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox" onclick="closeLb()">
         <button class="lb-close" onclick="closeLb()">✕</button>
         <img id="lb-img" src="" alt="">
         <div class="lb-info">
-            <div class="lb-tag">Stage 2ème année – Mission 3 – À compléter</div>
+            <div class="lb-tag">Stage 2ème année – Correction de vulnérabilités (Chrome, Adobe, CrowdStrike)</div>
             <p class="lb-caption" id="lb-caption"></p>
         </div>
     </div>
