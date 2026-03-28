@@ -6,11 +6,7 @@
     <title>Mes Projets - César COPPIN</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -19,7 +15,6 @@
             line-height: 1.6;
         }
 
-        /* ── NAV ── */
         nav {
             background: #2c3e50;
             padding: 1rem 0;
@@ -28,7 +23,6 @@
             z-index: 1000;
             text-align: center;
         }
-
         nav ul {
             display: flex;
             justify-content: center;
@@ -36,7 +30,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -45,43 +38,19 @@
             border-radius: 4px;
             transition: background 0.3s;
         }
+        nav ul li a:hover { background: rgba(255,255,255,0.15); }
+        .btn-retour { background: #e74c3c; padding: 8px 15px; border-radius: 5px; }
+        .btn-retour:hover { background: #c0392b !important; }
 
-        nav ul li a:hover {
-            background: rgba(255,255,255,0.15);
-        }
-
-        .btn-retour {
-            background: #e74c3c;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background 0.3s !important;
-        }
-
-        .btn-retour:hover {
-            background: #c0392b !important;
-        }
-
-        /* ── PAGE HEADER ── */
         .page-header {
             background: white;
             padding: 50px 20px 40px;
             text-align: center;
             border-bottom: 3px solid #eee;
         }
+        .page-header h1 { font-size: 2rem; color: #2c3e50; font-weight: 600; }
+        .page-header p  { color: #7f8c8d; margin-top: 8px; font-size: 0.95rem; }
 
-        .page-header h1 {
-            font-size: 2rem;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        .page-header p {
-            color: #7f8c8d;
-            margin-top: 8px;
-            font-size: 0.95rem;
-        }
-
-        /* ── CONTAINER ── */
         .container {
             width: 85%;
             max-width: 960px;
@@ -92,14 +61,12 @@
             overflow: hidden;
         }
 
-        /* ── TABS ── */
         .tabs {
             display: flex;
             flex-wrap: wrap;
             border-bottom: 2px solid #eee;
             background: #f8f9fa;
         }
-
         .tab-link {
             padding: 14px 20px;
             cursor: pointer;
@@ -113,27 +80,19 @@
             color: #7f8c8d;
             transition: color 0.3s, border-color 0.3s;
         }
-
-        .tab-link:hover {
-            color: #2c3e50;
-        }
-
+        .tab-link:hover { color: #2c3e50; }
         .tab-link.active {
             color: #2c3e50;
             border-bottom: 3px solid #e74c3c;
             background: white;
         }
 
-        /* ── TAB CONTENT ── */
         .tab-content {
             display: none;
             animation: fadeIn 0.4s ease;
             padding: 40px;
         }
-
-        .tab-content.active-content {
-            display: block;
-        }
+        .tab-content.active-content { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
@@ -146,28 +105,19 @@
             margin-bottom: 16px;
             font-weight: 600;
         }
-
         .tab-content p {
             color: #555;
             font-size: 0.95rem;
             margin-bottom: 12px;
         }
+        .placeholder { color: #aaa; font-style: italic; font-size: 0.9rem; }
 
-        /* Placeholder pour projets vides */
-        .placeholder {
-            color: #aaa;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        /* ── PDF BUTTON ── */
         .btn-group {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 20px;
         }
-
         .pdf-button, .demo-button, .synthese-button {
             display: inline-block;
             padding: 10px 22px;
@@ -177,36 +127,12 @@
             text-decoration: none;
             transition: background 0.3s, transform 0.2s;
         }
-
-        .pdf-button {
-            background-color: #2c3e50;
-            color: white;
-        }
-
-        .pdf-button:hover {
-            background-color: #e74c3c;
-            transform: translateY(-2px);
-        }
-
-        .demo-button {
-            background-color: #27ae60;
-            color: white;
-        }
-
-        .demo-button:hover {
-            background-color: #1e8449;
-            transform: translateY(-2px);
-        }
-
-        .synthese-button {
-            background-color: #8e44ad;
-            color: white;
-        }
-
-        .synthese-button:hover {
-            background-color: #6c3483;
-            transform: translateY(-2px);
-        }
+        .pdf-button      { background-color: #2c3e50; color: white; }
+        .pdf-button:hover { background-color: #e74c3c; transform: translateY(-2px); }
+        .demo-button      { background-color: #27ae60; color: white; }
+        .demo-button:hover { background-color: #1e8449; transform: translateY(-2px); }
+        .synthese-button  { background-color: #8e44ad; color: white; }
+        .synthese-button:hover { background-color: #6c3483; transform: translateY(-2px); }
 
         .next-button {
             display: inline-block;
@@ -221,21 +147,9 @@
             color: #2c3e50;
             transition: background 0.3s, color 0.3s, transform 0.2s;
         }
+        .next-button:hover { background-color: #2c3e50; color: white; transform: translateY(-2px); }
 
-        .next-button:hover {
-            background-color: #2c3e50;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* ── BADGE TAGS ── */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 14px 0;
-        }
-
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
         .tag {
             background: #eaf0fb;
             color: #2c3e50;
@@ -265,15 +179,15 @@
     <div class="container">
         <div class="tabs">
             <button class="tab-link active" onclick="openProject(event, 'p1')">Mission n°2 – ARCHISEC</button>
-            <button class="tab-link" onclick="openProject(event, 'p2')">Mission n°3 – Visiteurs at Home</button>
-            <button class="tab-link" onclick="openProject(event, 'p3')">Mission 4 -SPorTif</button>
-            <button class="tab-link" onclick="openProject(event, 'p4')">Mission n°5 -Secure-VoIP</button>
-            <button class="tab-link" onclick="openProject(event, 'p5')">Projet 5</button>
+            <button class="tab-link"        onclick="openProject(event, 'p2')">Mission n°3 – Visiteurs at Home</button>
+            <button class="tab-link"        onclick="openProject(event, 'p3')">Mission n°2 – OpenDATASEC</button>
+            <button class="tab-link"        onclick="openProject(event, 'p4')">Mission n°4 – SPorTif</button>
+            <button class="tab-link"        onclick="openProject(event, 'p5')">Mission n°5 – Secure-VoIP</button>
         </div>
 
-        <!-- P1 -->
+        <!-- ══ P1 – ARCHISEC ══ -->
         <div id="p1" class="tab-content active-content">
-            <h3>Architecture Sécurisée</h3>
+            <h3>AP2 – Mission n°2 : Architecture Sécurisée (GSB)</h3>
             <div class="tags">
                 <span class="tag">DHCP</span>
                 <span class="tag">DNS</span>
@@ -285,14 +199,14 @@
             <p><strong>Service DNS :</strong> Création du domaine interne <em>GSB-votrenom.net</em> pour la résolution de noms locale. Serveur configuré en mode non-récursif/privé, interdisant tout accès depuis Internet.</p>
             <div class="btn-group">
                 <a href="AP2-Mission2-GSB-Architecture-Sécurisée-update.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
-                <a href="archisec.pdf" class="synthese-button">📝 Synthèse de projet</a>
+                <a href="archisec.pdf" target="_blank" class="synthese-button">📝 Synthèse de projet</a>
                 <button class="next-button" onclick="goToProject(event, 'p2')">Projet suivant →</button>
             </div>
         </div>
 
-        <!-- P2 -->
+        <!-- ══ P2 – VISITEURS AT HOME ══ -->
         <div id="p2" class="tab-content">
-            <h3>Visiteurs at Home</h3>
+            <h3>AP2 – Mission n°3 : Visiteurs at Home (GSB)</h3>
             <div class="tags">
                 <span class="tag">802.1X</span>
                 <span class="tag">Active Directory</span>
@@ -303,56 +217,76 @@
             <p>Mise en œuvre d'une solution permettant aux visiteurs de se connecter de façon filaire au LAN de GSB et de s'authentifier dans le domaine dès leur arrivée au siège.</p>
             <div class="btn-group">
                 <a href="Mission3.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
-                <a href="individuel.pdf" class="synthese-button">📝 Synthèse de projet</a>
+                <a href="individuel.pdf" target="_blank" class="synthese-button">📝 Synthèse de projet</a>
                 <button class="next-button" onclick="goToProject(event, 'p3')">Projet suivant →</button>
             </div>
         </div>
 
-        <!-- P3 -->
+        <!-- ══ P3 – OPENDATASEC ══ -->
         <div id="p3" class="tab-content">
-            <h3>Système de Portail capTif</h3>
+            <h3>AP3 – Mission n°2 : OpenDATASEC – Sauvegarde des données (M2L)</h3>
             <div class="tags">
-                <span class="tag">Portail captif</span>
-                <span class="tag">pfSense,Pare-feu</span>
-                <span class="tag">LDAP/AD</span>
-                <span class="tag">SSH</span>
-                <span class="tag">Journalisation</span>
-                <span class="tag"> Sécurité réseau</span>
+                <span class="tag">Sauvegarde</span>
+                <span class="tag">NAS QNAP</span>
+                <span class="tag">FTP / SMB</span>
+                <span class="tag">RAID 5</span>
+                <span class="tag">Cloud</span>
+                <span class="tag">Scripts</span>
+                <span class="tag">Windows / Linux</span>
             </div>
-            <p class="placeholder">Mise en place d'un portail captif pour la Maison des Ligues (M2L) afin de contrôler et journaliser les accès Internet, en conformité avec la législation française.</p>
-            <div class="btn-group" style="margin-top:16px;">
-             <div class="btn-group">
-                <a href="AP4-Mission 4-M2L-SPORTIF2026.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
-                <a href="individuel.pdf" class="synthese-button">📝 Synthèse de projet</a>
+            <p>Mise en place d'une solution de sauvegarde automatisée pour les 24 structures sportives hébergées par la M2L, couvrant jusqu'à 200 postes de travail (documents et données de messagerie).</p>
+            <p><strong>Stockage redondant :</strong> Sauvegardes planifiées sur NAS local (RAID 5) et serveur cloud distant, avec deux emplacements géographiquement séparés pour garantir la continuité des données.</p>
+            <p><strong>Planification :</strong> Sauvegardes quotidiennes (1 semaine), hebdomadaires (1 mois) et mensuelles (1 trimestre), entièrement automatisées via scripting.</p>
+            <div class="btn-group">
+                <a href="AP3-Mission2-M2L-OpenDATASEC.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+                <a href="synthese-opendatasec.html" class="synthese-button">📝 Synthèse de projet</a>
                 <button class="next-button" onclick="goToProject(event, 'p4')">Projet suivant →</button>
             </div>
         </div>
 
-        <!-- P4 -->
+        <!-- ══ P4 – SPORTIF ══ -->
         <div id="p4" class="tab-content">
-            <h3>Communication téléphonique sécurisée en VoIP</h3>
-             <div class="tags">
-                <span class="tag">VoIP</span>
-                <span class="tag">Asterisk/PBX</span>
-                <span class="tag">VLAN</span>
-                <span class="tag">Anti-MITM</span>
+            <h3>AP4 – Mission n°4 : SPorTif – Système de Portail capTif (M2L)</h3>
+            <div class="tags">
+                <span class="tag">Portail captif</span>
+                <span class="tag">pfSense</span>
+                <span class="tag">Pare-feu</span>
+                <span class="tag">LDAP / AD</span>
+                <span class="tag">SSH</span>
+                <span class="tag">Journalisation</span>
                 <span class="tag">Sécurité réseau</span>
-                <span class="tag">SRTP/TLS</span>
             </div>
-            <p class="placeholder"></p>
-            <div class="btn-group" style="margin-top:16px;">
-             <div class="btn-group">
-                <a href="AP4Mission5M2LSecure-VoIP2026.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
-                <a href="individuel.pdf" class="synthese-button">📝 Synthèse de projet</a>
+            <p>Mise en place d'un portail captif pour la Maison des Ligues (M2L) afin de contrôler et journaliser les accès Internet, en conformité avec la législation française.</p>
+            <p><strong>Authentification & filtrage :</strong> Authentification des utilisateurs via LDAP/Active Directory, filtrage des URL, des protocoles et activation d'un antivirus de flux entrant.</p>
+            <p><strong>Journalisation :</strong> Enregistrement chiffré des traces de connexion et archivage sécurisé des journaux sur un serveur distant.</p>
+            <p><strong>Administration :</strong> Gestion à distance via SSH, consultation des statistiques réseau et surveillance du pare-feu.</p>
+            <div class="btn-group">
+                <a href="AP4-Mission4-M2L-SPORTIF-2026.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+                <a href="individuel.pdf" target="_blank" class="synthese-button">📝 Synthèse de projet</a>
                 <button class="next-button" onclick="goToProject(event, 'p5')">Projet suivant →</button>
             </div>
         </div>
 
-        <!-- P5 -->
+        <!-- ══ P5 – SECURE-VOIP ══ -->
         <div id="p5" class="tab-content">
-            <h3>Projet 5</h3>
-            <p class="placeholder">Compte rendu à venir...</p>
+            <h3>AP4 – Mission n°5 : Secure-VoIP – Communication téléphonique sécurisée (M2L)</h3>
+            <div class="tags">
+                <span class="tag">VoIP</span>
+                <span class="tag">Asterisk / PBX</span>
+                <span class="tag">VLAN</span>
+                <span class="tag">Anti-MITM</span>
+                <span class="tag">Sécurité réseau</span>
+                <span class="tag">SRTP / TLS</span>
+            </div>
+            <p>Mise en place d'une solution de téléphonie VoIP sécurisée entre les ligues de la M2L, cloisonnées dans des VLANs distincts. Protection des communications contre les attaques man-in-the-middle et les tentatives de scanning du serveur VoIP.</p>
+            <p><strong>Téléphonie inter-ligues :</strong> Configuration d'un serveur PBX (Asterisk) permettant les appels en intra-ligue et inter-ligues, tout en maintenant le cloisonnement réseau par VLAN.</p>
+            <p><strong>Sécurisation :</strong> Protection contre les interceptions MITM et les attaques par scanning, avec maintien du service garanti en toutes circonstances.</p>
+            <div class="btn-group">
+                <a href="AP4-Mission5-M2L-Secure-VoIP-2026.pdf" target="_blank" class="pdf-button">📄 Voir le compte rendu (PDF)</a>
+                <a href="individuel.pdf" target="_blank" class="synthese-button">📝 Synthèse de projet</a>
+            </div>
         </div>
+
     </div>
 
     <footer style="text-align:center; padding: 30px; color: #aaa; font-size: 0.8rem;">
@@ -368,15 +302,11 @@
         }
 
         function goToProject(evt, projectId) {
-            // Désactiver tout
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-content'));
             document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
-            // Activer le bon projet
             document.getElementById(projectId).classList.add('active-content');
-            // Activer le bon onglet (p1→index 0, p2→index 1, etc.)
             const index = parseInt(projectId.replace('p', '')) - 1;
             document.querySelectorAll('.tab-link')[index].classList.add('active');
-            // Scroll vers les onglets
             document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     </script>
